@@ -6,4 +6,4 @@ A simple todo list app built in HTML, CSS and JQuery for DSC Web JQuery meetup.
 
 
 ## License
-[MIT](LICENSE.md) © [James Muriithi]
+[MIT](LICENSE.md) © [James Muriithi](https://james-muriithi.firebaseapp.com/index.html)
