@@ -1,4 +1,4 @@
-let data = {
+let data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo: [],
   completed: []
 };
@@ -27,6 +27,8 @@ $(document).on('click','.remove', function(event) {
 
 let addItem = function(value) {
   $('#item').val('');
+  data.todo.push(value);
+  updateStorage();
   addItemToDOM(value, false)
 }
 // keydown listener
@@ -63,15 +65,54 @@ let addItemToDOM = function(value, completed) {
 
 let removeItem = function(e) {
   let item = $(e).parent().parent();
+  let parentId = item.parent().attr('id');
+  let value = $(item).text();
   item.remove();
+
+  if (parentId === 'todo') {
+        data.todo.splice(data.todo.indexOf(value), 1);
+    } else {
+        data.completed.splice(data.completed.indexOf(value), 1);
+    }
+    updateStorage()
 }
 
 let completeItem = function(e) {
   let item = $(e).parent().parent();
   let parent = item.parent();
   let parentId = parent.attr('id');
+  let value = $(item).text();
 
   let target = (parentId == 'todo') ? $('#completed') : $('#todo')
 
   item.prependTo(target)
+
+  if (parentId === 'todo') {
+        data.todo.splice(data.todo.indexOf(value), 1);
+        data.completed.push(value);
+    } else {
+        data.completed.splice(data.completed.indexOf(value), 1);
+        data.todo.push(value);
+    }
+    updateStorage();
 }
+
+let fetchSaved = function (){
+    if (!data.todo.length && !data.completed.length) return;
+
+    data.todo.forEach(function(value,index){
+        addItemToDOM(value,false);
+    });
+
+    data.completed.forEach(function(value,index){
+        addItemToDOM(value,true);
+    });
+}
+
+let updateStorage = function () {
+    localStorage.setItem('todoList', JSON.stringify(data));
+}
+
+$(document).ready(function() {
+    fetchSaved();
+});
