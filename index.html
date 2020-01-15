@@ -4,40 +4,39 @@
 <head>
     <!-- Content Type Meta tag -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <!--Responsive Viewport Meta tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-
+    <meta name="msapplication-TileColor" content="#08265c">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#08265c">
     <title>Todo list app</title>
-
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <!-- Roboto font embed -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-
     <!-- font awesome icons -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-
     <header>
         <input type="text" placeholder="Enter an activity.." id="item">
         <button id="add">
-			<i class="fa fa-plus text-white fs-19"></i>
-		</button>
+            <i class="fa fa-plus text-white fs-19"></i>
+        </button>
     </header>
-
     <div class="container">
         <!-- Uncompleted tasks -->
         <ul class="todo" id="todo"></ul>
-
         <!-- Completed tasks -->
         <ul class="todo" id="completed"></ul>
     </div>
-
     <!-- JavaScripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
